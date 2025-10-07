@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Transform</title>
+  <style>
+  body {
+    margin: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200vh;
+    background-color: #f0f0f0;
+  }
+  .container {
+    display: flex;
+    flex-direction:column;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    gap: 20px; /* Adds space between images */
+  }
+  .image-wrapper {
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+  img {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+    filter: brightness(0.4);
+    transition: 0.5s; /* Apply transition to image itself */
+    border-radius: 10px; /* Optional: adds rounded corners */
+  }
+  
+  /* prevents background from hindering smooth transition of images */
+/*  .container:hover .image-wrapper {
+    transform: translateZ(-30px);
+    filter: brightness(0.6);
+  }*/
+  .container:hover .image-wrapper:hover {
+    transform: translateZ(0) scale(1.1); /* Bring the hovered image forward and scale it up */
+    filter: brightness(3);
+    z-index: 10; /* Ensures the hovered image is on top */
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image-wrapper">
+      <img src="/storage/emulated/0/DCIM/Snapchat/Snapchat-1850895163.jpg">
+    </div>
+    <div class="image-wrapper">
+      <img src="/storage/emulated/0/DCIM/Snapchat/Snapchat-1850895163.jpg">
+    </div>
+    <div class="image-wrapper">
+      <img src="/storage/emulated/0/DCIM/Snapchat/Snapchat-1850895163.jpg">
+    </div>
+    <div class="image-wrapper">
+      <img src="/storage/emulated/0/DCIM/Snapchat/Snapchat-1850895163.jpg">
+    </div>
+  </div>
+</body>
+</html>
