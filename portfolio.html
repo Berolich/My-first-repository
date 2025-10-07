@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta name="description" content="Micheal Orisunmibare - Frontend Developer Portfolio showcasing responsive web applications and UI design projects.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+  <style>
+  * {
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+  }
+  /* general styles */
+  body {
+    background-color:#fdcc8a;
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    overflow-x:hidden;
+  }
+  h2 {
+    font-family:montserrat;
+    font-size:1.5rem;
+    margin-bottom:1rem;
+  }
+  ul {
+    font-family:poppins;
+  }
+  .small-heading {
+    font-size:20px;
+    margin-bottom:1.5rem;
+    font-weight:500;
+    margin-top:1rem;
+  }
+  
+  
+  /* navigation menu style */
+  header .navigation-links {
+    padding:1rem;
+    position:fixed !important;
+    top:0;
+    z-index:100;
+    width:100%;
+    min-height:60px;
+    background-color:#fc8d59;     
+  }
+  header .navigation-links ul {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;    
+  }
+  header ul li { 
+    list-style-type:none;
+  }
+  header ul li a {
+    font-size:1rem;
+    text-decoration:none;
+    color:black;
+    font-weight:700;
+    transition: .1s;
+  }
+  header ul li a:active,header ul li a:hover {
+    color:#d7301f;
+  }
+  
+  /* profile photo style */
+  .profile-photo {
+    padding-top:4.5rem;
+    margin-bottom:1rem;
+    text-align:center;
+  }
+  .profile-photo img{
+    outline:2px solid black;
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    object-position:top;
+    border-radius:50%;
+    display:inline-block;
+  }
+  
+  section {
+    padding:0.5rem 1.5rem;
+    animation: 
+  }
+  
+  /* home stylesheet */
+  .section1 {
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    width:100%;
+    margin-bottom:1.5rem;
+  }
+  .section1 p {
+    text-align:center;
+    line-height:40px;
+    font-size:2rem;
+    padding-bottom:0.5rem;
+  }
+  .cta-button {
+    display:flex;
+    gap:1rem;
+    justify-content:center;
+    align-items:center;
+    transform-style:preserve-3d;
+    transform:perspective(1000px);
+  }
+   .cta {
+     margin-top:10px;
+     border:none;
+     max-width:100px;
+     width:100%;
+     height:40px;
+     border-radius:12px;
+     padding:8px;
+     cursor:pointer;
+     background-color:#008080;
+     color:black;
+     transition:all 0.4s ease;     
+   }
+  .cta:focus {
+    transform:translateZ(4rem);
+    box-shadow:0 2px 10px rgba(0,0,0,0.4);
+  }
+  .cta a{
+    text-decoration:none;
+    font-size:13px;
+    font-weight:500;
+    color:white;
+  }
+  .cta a:hover a:active {
+    text-decoration:none;
+  }
+  
+  /* about section stylesheet */
+   .section2 {
+     border-bottom:1px solid black;
+   }
+  .section2 p {
+    margin-top:10px;
+    line-height:25px;
+    margin-bottom:1rem;
+  }
+   .section2 ul {
+     line-height:35px;
+   }
+  .section2 li {
+    list-style-type:none;
+  }
+  .section2 .info {
+    font-weight:500;
+    font-size:17;
+  }
+  .info {
+    font-weight:500;
+  }
+  /* projects stylesheets */
+  .section3 {
+    border-bottom:1px solid black;
+  }
+   .section3 p {
+     line-height:25px;
+     margin-bottom:0.5rem;
+   }
+   .section3 .skills-container {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:1rem;
+  }
+   .section3 .skills img {
+    width:50px;
+    object-fit:cover;
+    padding-right:10px;
+  }
+   .section3 .skills-container .skills{
+    font-weight:500;
+    background-color:rgba(255,255,110,0.3);
+    padding:20px;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 2px 6px rgba(0,0,0,0.4);
+    backdrop-filter:blur(25px);
+  }
+  
+  /* iframe styles */
+  .works-display iframe{
+    margin-top:0.5rem;
+    border-radius:5px;
+    width:100%;
+    height:400px;
+    box-shadow:0 0 10px rgba(0,10,100,0.4);
+    border:none;
+  }
+  .works-display figcaption {
+  font-family: Poppins;
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  color: #555555;
+  text-align: center;
+}
+  .works-display .tools-container {
+    display:flex;
+    justify-content:center;
+  }
+  .tools-container .tools {
+    max-width:100px;
+    margin:5px;
+    height:50px;
+    width:100%;
+    background-color:rgba(255,255,110,0.3);
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.4);
+    backdrop-filter:blur(25px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .tools-container .tools img {
+    width:30px;
+    object-fit:cover;
+  }
+  
+  /*  contact section */
+  .section4 {
+    margin:;
+    min-height:400px;
+    max-height:600px;
+  }
+   .section4 form {
+     margin-top:1.5rem;
+     display:flex;
+     flex-direction:column;
+     gap:1.5rem;
+   }
+   .section4 input {
+     width:100%;
+     max-width:250px;
+     height:25px;
+     outline:none;
+     border:none;
+     background:none;
+     border-bottom:1.5px solid black;
+   }
+   .section4 input[type=text], input[type=email], input[type=password]
+    .section4 input::placeholder {
+      padding:0.6rem;
+      font-size:1rem;
+      background:none;
+    }
+  .section4 textarea {
+    padding:0.5rem;
+    outline:1px solid black;
+    background:none;
+    border:none;
+    border-radius:5px;
+    width:200px;
+  }
+  .section4 form button[type=submit] {
+    width:40%;
+    border-radius:10px;
+    border:none;
+    height:35px;
+    color:white;
+    font-weight:500;    
+    background-color:#d7301f;
+  }
+  
+  /* form submission style */
+
+  
+  footer {
+    padding-top:3px;
+    text-align:center;
+    font-size:.5rem;
+  }
+  
+  /* animation styles */
+  
+  @keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideInFromLeft 1.5s ease-in-out forwards;
+}
+  /* form submission styles */
+  .success-message {
+    background-color: #d7301f;
+    color: #ffff;
+    padding:10px;
+    border-radius:10px;
+  }
+  .success-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+    background-color: #bbf7d0;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+    color: #16a34a;
+  }
+  .error-message {
+    background-color: #fee2e2;
+    color: #dc2626;
+  }
+  .error-page-content {
+    display: none;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+  }
+  .error-page-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  .error-page-content p {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #ef4444;
+  }
+  .typed {
+    font-weight:bold;
+    color:#008080;
+  }
+  /* responsiveness design */
+  @media (max-width: 600px) {
+      .tools-container {
+        grid-template-columns:1fr;
+      }
+  }
+  </style>
+</head>
+<body class="slide-in">
+  <!--navigation menu-->
+  <header>
+    <nav class="navigation-links">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#works">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="profile-photo"><img src="./images_wrk/portfolio-pic.jpg" alt="Micheal Orisunmibare Frontend developer"></div>
+    
+    <!--home section--------->
+    
+    <section class="section1" id="home">      
+      <p>
+        Hello, my name is Micheal. I'm a <span class="typed"><b></b></span>.        
+      </p>        
+      <div class="cta-button">   
+        <button class="cta"><a href="mailto:orisunmibaremicheal@gmail.com">Let's Connect</a></button>
+        <button class="cta"><a href="./html_file/Micheal Orisunmibare Resumé.docx">View Résume</a></button>        
+      </div>          
+    </section>    
+    
+    <script>
+  // Typewriter effect
+  const texts = ["Frontend developer", "UI designer", "Creative Coder"];
+  let idx=0, char=0, current="";
+  function type(){
+    if(char < texts[idx].length){
+      current += texts[idx].charAt(char++);
+      document.querySelector(".typed").textContent = current;
+      setTimeout(type,150);
+    } else {
+      setTimeout(() => {
+        char=0; current=""; idx=(idx+1)%texts.length;
+        type();
+      }, 2000);
+    }
+  }
+  window.onload = type;
+    </script>
+
+    <!--about section-->
+    
+    <section class="section2" id="about">
+      <h2>About Me</h2>
+      <p>I build sleek, responsive, and animated web experiences using cutting-edge frontend tools. I love solving problems and transforming design into functional beauty.</p>
+      <ul>
+        <li><span class="info">Email:</span> Orisunmibaremicheal@gmail.com</li>
+        <li><span class="info">Phone:</span> 09020484477</li>
+        <li><span class="info">Location:</span> Lagos, Nigeria</li>
+        <li><span class="info">Job Type:</span> Internship, Remote/Hybrid</li>
+        <li><span class="info">Job description:</span> Junior Frontend developer</li>
+      </ul>
+      
+        <ul class="collabs">
+          <li><span class="info">Focus:</span></li>
+          <li>E-commerce website</li>
+          <li>Fintech</li>
+          <li>Cryptocurrency</li>
+          <li>Educational websites</li>
+          <li>Health</li>
+          <li>Web Apps</li>
+        </ul> 
+      </div>
+    </section>
+    
+    <!--projects and works-->
+    
+    <section class="section3" id="works">
+      <h2>Skills</h2>
+            <p>I use the following tools to craft beautiful Applications:</p>
+      <div class="skills-container">
+        <div class="skills"><img src="./images_wrk/HTML5_logo.png" alt="">HTML</div>
+        <div class="skills">
+          <img src="./images_wrk/CSS.png" alt="">CSS</div>
+        <div class="skills">
+          <img src="./images_wrk/gitlogo.png" alt="">GIT</div>
+        <div class="skills">
+          <img src="./images_wrk/javascript_icon.png">JAVASCRIPT</div>
+      </div>
+      <h2>Projects</h2>
+      <div class="works-display">
+        <iframe src="restaurant website.html"></iframe>
+        <figcaption>Resturant Website for a Company named <i>Bella Cucina</i></figcaption>
+        <div class="small-heading"><p>Tools used:</p></div>
+          <div class="tools-container">
+        <div class="tools"><img src="./images_wrk/HTML5_logo.png" alt="HTML logo"></div>
+        <div class="tools"><img src="./images_wrk/CSS.png" alt="css logo"></div>
+        <div class="tools"><img src="./images_wrk/javascript_icon.png" alt="javascript logo"></div>
+        </div>
+      </div>
+        
+      <div class="works-display">
+        <iframe src="school login form.html"></iframe>
+        <figcaption>Beautiful Glassmorphism School Login Form.</figcaption>
+        <div class="small-heading"><p>Tools Used:</p>          
+        </div>
+        <div class="tools-container">
+          <div class="tools"><img src="./images_wrk/HTML5_logo.png" alt="HTML logo"></div>
+          <div class="tools"><img src="./images_wrk/CSS.png" alt="css logo"></div>
+          <div class="tools"><img src="./images_wrk/javascript_icon.png" alt="javascript logo"></div>
+        </div>
+      </div>
+        
+    <div class="works-display">
+        <iframe src="updated image gallery.html"></iframe>
+        <figcaption>Beautiful Image Gallery (only CSS)</figcaption>
+        <div class="small-heading"><p>Tools Used:</p>          
+        </div>      
+          <div class="tools-container">
+            <div class="tools"><img src="./images_wrk/HTML5_logo.png" alt="html logo"></div>
+        <div class="tools"><img src="./images_wrk/CSS.png" alt="css logo"></div>
+          </div>
+      </div>          
+    </section>       
+           
+    <!--contact section-->
+  <section class="section4" id="contact">
+    <h2>Contact Me</h2>
+    
+    <div id="form-container">
+      <form action="submit.html"id="contactForm">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea placeholder="leave a message" maxlength="500"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+  </section>
+  </main>
+<footer>
+  ©2025 Orisunmibare Micheal Made with HTML CSS and Javascript
+</footer>
+      <!--      <script>      document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById('contactForm');
+  const formContainer = document.getElementById('form-container');
+  const successMessage = document.getElementById('successMessage');
+  const errorPage = document.getElementById('errorPage');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (navigator.onLine) {
+      formContainer.style.display = 'none';
+      successMessage.style.display = 'block';
+    } else {
+      formContainer.style.display = 'none';
+      errorPage.style.display = 'block';
+    }
+  });
+});      
+      </script>
+      <div id="successMessage" class="message-container success-message">
+        <div class="success-icon">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+        <h2 class="title">Form Submitted Successfully!</h2>
+        <p>Your message has been sent. Thank you for reaching out.</p>
+    </div>
+
+    <div id="errorPage" class="error-page-content">
+        <img src="/storage/emulated/0/download/download.png" alt="404 Offline Page">
+        <p>You are offline. Please check your internet connection and try again.</p>
+    </div>-->
+</body>
+</html>
